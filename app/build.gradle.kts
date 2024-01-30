@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-parcelize")
 }
 
 android {
@@ -51,6 +50,11 @@ android {
 }
 
 dependencies {
+//this is the code for navigation between screens
+    val nav_version = "2.7.4"
+
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
 
     val compose_version = "1.6.0-alpha08"
     implementation("androidx.compose.ui:ui:$compose_version")

@@ -12,6 +12,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.iitipclubprojectquizapp.data.listOfQuestion
 import com.example.iitipclubprojectquizapp.ui.theme.IITIPclubprojectQuizAppTheme
 
@@ -19,31 +24,29 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val navController = rememberNavController()
             IITIPclubprojectQuizAppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    QuizScreen(listOfQuestion)
-                }
+                AppNavigation()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    IITIPclubprojectQuizAppTheme {
-        Greeting("Android")
+fun AppNavigation(
+){
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = Screen.LandingScreen.route){
+        composable(Screen.LandingScreen.route){
+            LandingPage(
+                navigateToQuizScreen = {
+                    navController.navigate(Screen.QuizPage.route)
+                }
+            )
+        }
+        composable(Screen.QuizPage.route){
+            QuizScreen(listOfQuestion = listOfQuestion,navController = navController)
+        }
     }
+
 }

@@ -15,7 +15,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
-import com.example.iitipclubprojectquizapp.Greeting
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -75,6 +74,6 @@ fun IITIPclubprojectQuizAppTheme(
 @Composable
 fun IITIPclubprojectQuizAppThemePreview() {
     IITIPclubprojectQuizAppTheme {
-        Greeting("Android")
+       // Greeting("Android")
     }
 }

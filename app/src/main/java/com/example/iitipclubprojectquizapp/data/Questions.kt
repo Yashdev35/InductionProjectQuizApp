@@ -1,7 +1,7 @@
 package com.example.iitipclubprojectquizapp.data
 
 val Q1 = QuestionAndAns(
-    question = "If you could fold a piece of paper in half 50 times, its&#039; thickness will be 3/4th the distance from the Earth to the Sun.",
+    question = "If you could fold a piece of paper in half 50 times, it's; thickness will be 3/4th the distance from the Earth to the Sun.",
     trueAns = false
 )
 
@@ -80,4 +80,50 @@ val Q16 = QuestionAndAns(
     trueAns = true
 )
 
-val listOfQuestion = arrayListOf(Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16)
+val Q17 = QuestionAndAns(
+    question = "The first person convicted of speeding was going 8 mph.",
+    trueAns = true
+)
+
+val Q18 = QuestionAndAns(
+    question = "Slovakia is a member of European Union",
+    trueAns = true
+)
+
+val Q19 = QuestionAndAns(
+    question = "Helen Clark was the 37th Prime Minister of Australia.",
+    trueAns = false
+)
+
+val Q20 = QuestionAndAns(
+    question = "In the original Star Wars trilogy, David Prowse was the actor who physically portrayed Darth Vader.",
+    trueAns = true
+)
+
+val Q21 = QuestionAndAns(
+    question = "Gumbo is a stew that originated in Louisiana.",
+    trueAns = true
+)
+
+val Q22 = QuestionAndAns(
+    question = "DHCP stands for Dynamic Host Configuration Port.",
+    trueAns = false
+)
+
+val Q23 = QuestionAndAns(
+    question = "Vincent van Gogh cut off one of his ears.",
+    trueAns = true
+)
+
+val Q24 = QuestionAndAns(
+    question = "The French word for glass is glace.",
+    trueAns = false
+)
+
+val Q25 = QuestionAndAns(
+    question = "Sugar contains fat.",
+    trueAns = false
+)
+
+val listOfQuestion = arrayListOf(Q1, Q3, Q4, Q2, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15,  Q17,
+    Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25, Q16)

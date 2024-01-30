@@ -1,5 +1,6 @@
 package com.example.iitipclubprojectquizapp
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -34,23 +35,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.iitipclubprojectquizapp.data.QuestionAndAns
-import com.example.iitipclubprojectquizapp.data.listOfQuestion
 
 
 @Composable
 fun QuizScreen(
-questions : List<QuestionAndAns>
+    listOfQuestion: List<QuestionAndAns>,
+    navController : NavController
 ){
     val userAns = remember { mutableStateOf(true) }
     val currentQuestion = remember { mutableStateOf(0) }
     val context = LocalContext.current
     val score = remember { mutableStateOf(0) }
     fun updateQuestion(){
-        if(currentQuestion.value>=0 && currentQuestion.value <= questions.size - 1){
-           Toast.makeText(context,"next",Toast.LENGTH_SHORT).show()
+        if(currentQuestion.value>=0 && currentQuestion.value <= listOfQuestion.size - 1){
+           Log.d("TAG", "updateQuestion: ${currentQuestion.value}")
         }else{
-            if(currentQuestion.value > questions.size - 1){
+            if(currentQuestion.value > listOfQuestion.size - 1){
                 currentQuestion.value--
                 Toast.makeText(context,"Quiz Completed",Toast.LENGTH_SHORT).show()
             }else{
@@ -60,8 +62,10 @@ questions : List<QuestionAndAns>
         }
     }
     fun checkAns(){
-        if(userAns.value == questions[currentQuestion.value].trueAns){
-            if(score.value>=0 && score.value < questions.size){
+        if(userAns.value == listOfQuestion[currentQuestion.value].trueAns){
+            currentQuestion.value++
+            updateQuestion()
+            if(score.value>=0 && score.value < listOfQuestion.size){
                 score.value++
             }else{
                 score.value--
@@ -75,9 +79,9 @@ questions : List<QuestionAndAns>
 
     Scaffold(
 topBar = {
-AppBar(title = "Quiz App",{
-
-})
+AppBar(title = "Quiz App"){
+navController.popBackStack()
+}
 }
 ){
 
@@ -112,7 +116,7 @@ AppBar(title = "Quiz App",{
                         )
                     )
                     Text(
-                        text = "your current score is ${score.value}/${questions.size}",
+                        text = "your current score is ${score.value}/${listOfQuestion.size}",
                         style = TextStyle(
                             color = colorResource(id = R.color.black),
                             fontWeight = FontWeight.Bold,
@@ -122,7 +126,7 @@ AppBar(title = "Quiz App",{
                 }
             }
             QuestionCard(
-                questionList = questions,
+                questionList = listOfQuestion,
                 currentQuestion = currentQuestion)
             Spacer(modifier = Modifier.padding(10.dp))
 
@@ -254,5 +258,5 @@ AppBar(title = "Quiz App",{
 @Preview
 @Composable
 fun QuizScreenPreview(){
-    QuizScreen(questions = listOfQuestion)
+   // QuizScreen(questions = listOfQuestion)
 }
