@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.iitipclubprojectquizapp.data.QuestionAndAns
-
+//this defines the question card which is displayed on the screen
 @Composable
 fun QuestionCard(
     questionList: List<QuestionAndAns>,
@@ -37,7 +37,7 @@ fun QuestionCard(
                 .padding(10.dp),
             contentAlignment = Alignment.Center
         ){
-            Text(text = questionList[currentQuestion.value].question, fontWeight = FontWeight.ExtraBold,fontSize = 20.sp)
+            Text(text = "Q${currentQuestion.value + 1}. ${questionList[currentQuestion.value].question}", fontWeight = FontWeight.ExtraBold,fontSize = 20.sp)
         }
 
     }

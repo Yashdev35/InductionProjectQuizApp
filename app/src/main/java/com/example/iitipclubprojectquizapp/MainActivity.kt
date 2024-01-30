@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+//here we define the navigation between screens using normal navigation compose
 @Composable
 fun AppNavigation(
 ){

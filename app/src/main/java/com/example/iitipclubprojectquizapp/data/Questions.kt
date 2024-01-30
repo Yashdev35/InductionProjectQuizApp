@@ -1,5 +1,5 @@
 package com.example.iitipclubprojectquizapp.data
-
+//list of hard coded questions, API attempt was made but failed, i'll look into it
 val Q1 = QuestionAndAns(
     question = "If you could fold a piece of paper in half 50 times, it's; thickness will be 3/4th the distance from the Earth to the Sun.",
     trueAns = false

@@ -35,7 +35,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+//this is the landing page of the app, it contains the start button which will navigate to the quiz screen
 @Composable
 fun LandingPage(
     navigateToQuizScreen:()->Unit
@@ -48,11 +48,11 @@ fun LandingPage(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it).background(color = colorResource(id = R.color.white)),
+                .padding(it).background(color = colorResource(id = R.color.black)),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text ="Welcome to Quiz App",fontSize = 20.sp,fontWeight = FontWeight.Bold)
+            Text(text ="Welcome to Quiz App",fontSize = 20.sp,fontWeight = FontWeight.Bold,color = Color.White)
             Spacer(modifier = Modifier.padding(10.dp))
             Button(
                 onClick = {
@@ -63,13 +63,13 @@ fun LandingPage(
                     .wrapContentHeight()
                     .padding(10.dp),
                 colors = buttonColors(
-                    backgroundColor = Color(0xFF1A1A1A),
+                    backgroundColor = colorResource(id = R.color.white),
                     contentColor = Color.White
                 ),
                 shape = CircleShape,
-                border = BorderStroke(1.dp, color = Color.Black)
+                border = BorderStroke(1.dp, color = Color.White)
             ) {
-                Text(text = "Start the Rumble",color = Color.White,fontSize = 15.sp,fontWeight = FontWeight.Bold)
+                Text(text = "Start the Rumble",color = Color.Black,fontSize = 15.sp,fontWeight = FontWeight.Bold)
             }
         }
     }

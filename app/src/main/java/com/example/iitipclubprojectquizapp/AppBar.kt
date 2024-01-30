@@ -17,7 +17,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
+//this function defines the app bar on top of the screen, it contains the title and back button and function whic
+//is called when back button is pressed
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppBar(
